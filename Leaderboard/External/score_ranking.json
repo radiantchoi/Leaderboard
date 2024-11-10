@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "userId": "1",
+            "nickname": "Gordon",
+            "score": 100000
+        },
+        {
+            "userId": "2",
+            "nickname": "John",
+            "score": 99999
+        },
+        {
+            "userId": "3",
+            "nickname": "Peter",
+            "score": 99998
+        },
+        {
+            "userId": "4",
+            "nickname": "David",
+            "score": 99997
+        },
+        {
+            "userId": "5",
+            "nickname": "Tom",
+            "score": 99996
+        },
+        {
+            "userId": "6",
+            "nickname": "Jerry",
+            "score": 99995
+        },
+        {
+            "userId": "7",
+            "nickname": "Alice",
+            "score": 99994
+        },
+        {
+            "userId": "8",
+            "nickname": "Bob",
+            "score": 99993
+        },
+        {
+            "userId": "9",
+            "nickname": "Eva",
+            "score": 99992
+        },
+        {
+            "userId": "10",
+            "nickname": "Lily",
+            "score": 99991
+        }
+    ]
+}

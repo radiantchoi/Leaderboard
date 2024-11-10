@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "userId": "1",
+            "nickname": "Gordon",
+            "seconds": 100
+        },
+        {
+            "userId": "2",
+            "nickname": "John",
+            "seconds": 101
+        },
+        {
+            "userId": "3",
+            "nickname": "Peter",
+            "seconds": 102
+        },
+        {
+            "userId": "4",
+            "nickname": "David",
+            "seconds": 103
+        },
+        {
+            "userId": "5",
+            "nickname": "Tom",
+            "seconds": 104
+        },
+        {
+            "userId": "6",
+            "nickname": "Jerry",
+            "seconds": 105
+        },
+        {
+            "userId": "7",
+            "nickname": "Alice",
+            "seconds": 106
+        },
+        {
+            "userId": "8",
+            "nickname": "Bob",
+            "seconds": 107
+        },
+        {
+            "userId": "9",
+            "nickname": "Eva",
+            "seconds": 108
+        },
+        {
+            "userId": "10",
+            "nickname": "Lily",
+            "seconds": 109
+        }
+    ]
+}
