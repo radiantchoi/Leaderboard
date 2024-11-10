@@ -10,7 +10,7 @@ import Foundation
 
 final class ViewModel {
     var isScoreRanking: Bool = true
-    var rankings: CurrentValueSubject<[any Ranking], Never> = .init([])
+    var rankings: CurrentValueSubject<[ScoreRanking], Never> = .init([])
     var error: CurrentValueSubject<LeaderboardError?, Never> = .init(nil)
     
     private let useCase: RankingUseCase
@@ -46,7 +46,8 @@ final class ViewModel {
         Task {
             do {
                 let rankings = try await useCase.getTimeRankings()
-                self.rankings.send(rankings)
+//                self.rankings.send(rankings)
+                print(rankings)
             } catch {
                 if let error = error as? LeaderboardError {
                     self.error.send(error)

@@ -33,6 +33,8 @@ final class ViewController: UIViewController {
         setupConstraints()
         observeUIEvents()
         observeObjects()
+        
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +72,17 @@ final class ViewController: UIViewController {
         viewModel.rankings
             .receive(on: DispatchQueue.main)
             .sink { [weak self] rankings in
-                print(rankings)
+                guard let self else { return }
+                
+                var snapshot = dataSource?.snapshot() ?? makeNewSnapshot()
+                
+                let oldItems = snapshot.itemIdentifiers(inSection: .ranking)
+                snapshot.deleteItems(oldItems)
+                
+                let newItems = rankings.map { Item.rankingItem($0) }
+                snapshot.appendItems(newItems, toSection: .ranking)
+                
+                dataSource?.apply(snapshot, animatingDifferences: true)
             }
             .store(in: &cancellables)
         
@@ -96,8 +108,8 @@ extension ViewController {
         case ranking
     }
     
-    enum Item {
-        case rankingItem
+    enum Item: Hashable {
+        case rankingItem(ScoreRanking)
     }
     
     private func setupTableView() {
@@ -105,18 +117,36 @@ extension ViewController {
         
         registerCells()
         setDataSource()
+        
+        let snapshot = makeNewSnapshot()
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
     private func registerCells() {
-        
+        boardTableView.register(RankingTableViewCell.self, forCellReuseIdentifier: RankingTableViewCell.identifier)
     }
     
     private func setDataSource() {
-        
+        dataSource = DataSource(tableView: boardTableView) { (tableView, indexPath, item) -> UITableViewCell? in
+            switch item {
+            case .rankingItem(let item):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: RankingTableViewCell.identifier, for: indexPath) as? RankingTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.configureContents(ranking: item)
+                
+                return cell
+            }
+        }
     }
     
-    private func makeNewSnapshot() {
+    private func makeNewSnapshot() -> Snapshot {
+        var snapshot = Snapshot()
         
+        snapshot.appendSections([.ranking])
+        
+        return snapshot
     }
 }
 

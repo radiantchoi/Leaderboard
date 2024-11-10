@@ -12,6 +12,8 @@ import SnapKit
 final class RankingTableViewCell: UITableViewCell {
     static let identifier = "RankingTableViewCell"
     
+    private lazy var contentWrappingView = UIView()
+    
     private lazy var nicknameLabel: UILabel = {
         $0.text = "nickname"
         
@@ -42,24 +44,29 @@ final class RankingTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        contentView.addSubview(nicknameLabel)
-        contentView.addSubview(scoreLabel)
-        contentView.addSubview(timeLabel)
+        contentView.backgroundColor = .white
+        
+        contentView.addSubview(contentWrappingView)
+        
+        contentWrappingView.addSubview(nicknameLabel)
+        contentWrappingView.addSubview(scoreLabel)
+        contentWrappingView.addSubview(timeLabel)
     }
     
     private func setupConstraints() {
+        contentWrappingView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(8)
+        }
+        
         nicknameLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8)
-            $0.centerY.equalToSuperview()
+            $0.top.bottom.leading.equalToSuperview().inset(8)
         }
         
         scoreLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(8)
-            $0.centerY.equalToSuperview()
+            $0.top.bottom.trailing.equalToSuperview().inset(8)
         }
         timeLabel.snp.makeConstraints {
-            $0.trailing.equalTo(scoreLabel)
-            $0.centerY.equalToSuperview()
+            $0.top.bottom.trailing.equalTo(scoreLabel).inset(8)
         }
     }
     
