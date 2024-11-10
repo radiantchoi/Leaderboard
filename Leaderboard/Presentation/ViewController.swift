@@ -73,6 +73,7 @@ final class ViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] rankings in
                 guard let self else { return }
+                print(rankings)
                 
                 var snapshot = dataSource?.snapshot() ?? makeNewSnapshot()
                 
@@ -109,7 +110,7 @@ extension ViewController {
     }
     
     enum Item: Hashable {
-        case rankingItem(ScoreRanking)
+        case rankingItem(AnyRanking)
     }
     
     private func setupTableView() {

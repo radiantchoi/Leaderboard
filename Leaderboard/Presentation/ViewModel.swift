@@ -10,7 +10,7 @@ import Foundation
 
 final class ViewModel {
     var isScoreRanking: Bool = true
-    var rankings: CurrentValueSubject<[ScoreRanking], Never> = .init([])
+    var rankings: CurrentValueSubject<[AnyRanking], Never> = .init([])
     var error: CurrentValueSubject<LeaderboardError?, Never> = .init(nil)
     
     private let useCase: RankingUseCase
@@ -30,7 +30,7 @@ final class ViewModel {
     private func getScoreRankings() {
         Task {
             do {
-                let rankings = try await useCase.getScoreRankings()
+                let rankings = try await useCase.getScoreRankings().map { AnyRanking($0, type: .score) }
                 self.rankings.send(rankings)
             } catch {
                 if let error = error as? LeaderboardError {
@@ -45,9 +45,8 @@ final class ViewModel {
     private func getTimeRankings() {
         Task {
             do {
-                let rankings = try await useCase.getTimeRankings()
-//                self.rankings.send(rankings)
-                print(rankings)
+                let rankings = try await useCase.getTimeRankings().map { AnyRanking($0, type: .time) }
+                self.rankings.send(rankings)
             } catch {
                 if let error = error as? LeaderboardError {
                     self.error.send(error)

@@ -70,14 +70,14 @@ final class RankingTableViewCell: UITableViewCell {
         }
     }
     
-    func configureContents(ranking: any Ranking) {
+    func configureContents(ranking: AnyRanking) {
         nicknameLabel.text = ranking.nickname
         
-        if let ranking = ranking as? ScoreRanking {
+        if let ranking = ranking.base as? ScoreRanking {
             scoreLabel.isHidden = false
             scoreLabel.text = "\(ranking.score)"
             timeLabel.isHidden = true
-        } else if let ranking = ranking as? TimeRanking {
+        } else if let ranking = ranking.base as? TimeRanking {
             timeLabel.isHidden = false
             timeLabel.text = "\(ranking.seconds)"
             scoreLabel.isHidden = true
