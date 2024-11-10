@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4FA6BA6F2CE09CB700128E6A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4FA6BA6E2CE09CB700128E6A /* SnapKit */; };
-		4FA6BA712CE09CB700128E6A /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4FA6BA702CE09CB700128E6A /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA6BA6F2CE09CB700128E6A /* SnapKit in Frameworks */,
-				4FA6BA712CE09CB700128E6A /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +84,6 @@
 			name = Leaderboard;
 			packageProductDependencies = (
 				4FA6BA6E2CE09CB700128E6A /* SnapKit */,
-				4FA6BA702CE09CB700128E6A /* SnapKit-Dynamic */,
 			);
 			productName = Leaderboard;
 			productReference = 4FA6BA552CE09B5A00128E6A /* Leaderboard.app */;
@@ -370,11 +367,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4FA6BA6D2CE09CB700128E6A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		4FA6BA702CE09CB700128E6A /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4FA6BA6D2CE09CB700128E6A /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

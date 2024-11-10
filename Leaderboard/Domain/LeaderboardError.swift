@@ -11,4 +11,5 @@ enum LeaderboardError: Error {
     case invalidURL
     case failedToDecode
     case failedToGetData
+    case unknown
 }

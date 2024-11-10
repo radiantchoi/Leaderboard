@@ -12,7 +12,7 @@ struct RankingResponse: Codable {
 }
 
 struct RankingDTO: Codable {
-    let id: String
+    let userId: String
     let nickname: String
     let score: Int?
     let seconds: Int?
@@ -20,12 +20,12 @@ struct RankingDTO: Codable {
     func toScoreRanking() -> ScoreRanking? {
         guard let score else { return nil }
         
-        return ScoreRanking(userId: id, nickname: nickname, score: score)
+        return ScoreRanking(userId: userId, nickname: nickname, score: score)
     }
     
     func toTimeRanking() -> TimeRanking? {
         guard let seconds else { return nil }
         
-        return TimeRanking(userId: id, nickname: nickname, seconds: seconds)
+        return TimeRanking(userId: userId, nickname: nickname, seconds: seconds)
     }
 }
