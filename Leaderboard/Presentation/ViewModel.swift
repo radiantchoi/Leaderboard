@@ -58,7 +58,7 @@ final class ViewModel {
     ///     - error: 발생한 에러
     ///     - file: 에러가 발생한 파일 이름 (기본값은 이 함수를 에러 핸들링을 위해 호출한 지점의 파일 이름)
     ///     - line: 에러가 발생한 코드 줄 번호 (기본값은 이 함수를 에러 핸들링을 위해 호출한 지점의 코드 줄 번호)
-    private func handleError(_ error: Error, file: String = #fileID, line: Int = #line) {
+    func handleError(_ error: Error, file: String = #fileID, line: Int = #line) {
         print(error)
         print("on \(file), line \(line)")
         
