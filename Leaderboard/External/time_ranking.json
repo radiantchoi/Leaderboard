@@ -3,52 +3,52 @@
         {
             "userId": "1",
             "nickname": "Gordon",
-            "seconds": 100
+            "seconds": 100.3
         },
         {
             "userId": "2",
             "nickname": "John",
-            "seconds": 101
+            "seconds": 101.7
         },
         {
             "userId": "3",
             "nickname": "Peter",
-            "seconds": 102
+            "seconds": 102.5
         },
         {
             "userId": "4",
             "nickname": "David",
-            "seconds": 103
+            "seconds": 103.1
         },
         {
             "userId": "5",
             "nickname": "Tom",
-            "seconds": 104
+            "seconds": 104.9
         },
         {
             "userId": "6",
             "nickname": "Jerry",
-            "seconds": 105
+            "seconds": 105.6
         },
         {
             "userId": "7",
             "nickname": "Alice",
-            "seconds": 106
+            "seconds": 106.3
         },
         {
             "userId": "8",
             "nickname": "Bob",
-            "seconds": 107
+            "seconds": 107.4
         },
         {
             "userId": "9",
             "nickname": "Eva",
-            "seconds": 108
+            "seconds": 108.0
         },
         {
             "userId": "10",
             "nickname": "Lily",
-            "seconds": 109
+            "seconds": 109.2
         }
     ]
 }

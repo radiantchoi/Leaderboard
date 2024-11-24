@@ -56,4 +56,14 @@ final class ViewModel {
             }
         }
     }
+    
+    private func handleError(_ error: Error) {
+        print(error)
+        
+        if let error = error as? LeaderboardError {
+            self.error.send(error)
+        } else {
+            self.error.send(.unknown)
+        }
+    }
 }

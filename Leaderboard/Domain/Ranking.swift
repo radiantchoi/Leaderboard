@@ -21,5 +21,5 @@ struct ScoreRanking: Ranking {
 struct TimeRanking: Ranking {
     let userId: String
     let nickname: String
-    let seconds: Int
+    let seconds: Double
 }

@@ -25,7 +25,7 @@ final class RankingRepositoryImpl: RankingRepository {
     func getTimeRankings() async throws -> [TimeRanking] {
         let data = try await APIManager.shared.getRankings(.time)
         
-        guard let timeRankingsData = try? JSONDecoder().decode(RankingResponse.self, from: data) else {
+        guard let timeRankingsData = try? JSONDecoder().decode(ViceRankingResponse.self, from: data) else {
             throw LeaderboardError.failedToDecode
         }
         
