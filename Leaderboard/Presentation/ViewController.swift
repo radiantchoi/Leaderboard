@@ -90,6 +90,8 @@ final class ViewController: UIViewController {
         viewModel.error
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
+                guard let error else { return }
+                
                 print(error)
             }
             .store(in: &cancellables)
